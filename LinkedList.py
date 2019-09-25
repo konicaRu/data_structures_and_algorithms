@@ -26,7 +26,7 @@ class LinkedList:
         node = self.head
         while node != None:
             if node.value == val:
-                return node.value
+                return node
             else:
                 node = node.next
         return None
@@ -67,7 +67,7 @@ class LinkedList:
         arr = []
         while node != None:
             if node.value == val:
-                arr.append(val)
+                arr.append(node)
                 node = node.next
             else:
                 node = node.next
