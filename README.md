@@ -1,3 +1,2 @@
-# Hi
-my first
-it second deal
+ну ни хрена себе
+# algorithm
