@@ -70,7 +70,6 @@ class LinkedList_1:
 
     def arr_full(self):  # создаем обычный список из связанного списка
         arr_f = []
-        arr_f = []
         node = self.head
         while node != None:
             arr_f.append(node.value)
