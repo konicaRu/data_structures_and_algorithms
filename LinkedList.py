@@ -39,7 +39,7 @@ class LinkedList:
             node = node.next
         return count
 
-    def clear(self):
+    def clean(self):
         self.head = None
         self.tail = None
 
