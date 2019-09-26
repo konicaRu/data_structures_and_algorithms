@@ -50,12 +50,6 @@ class LinkedList:
                 one_run = one_run.next
 
 
-class Node_1:
-    def __init__(self, v, d=None):
-        self.value = v
-        self.next = d
-
-
 class LinkedList_1:
     def __init__(self):
         self.head = None
@@ -75,12 +69,6 @@ class LinkedList_1:
             arr_f.append(node.value)
             node = node.next
         return arr_f
-
-
-class Node_2:
-    def __init__(self, v, d=None):
-        self.value = v
-        self.next = d
 
 
 class LinkedList_2:
@@ -114,7 +102,7 @@ class LinkedList_2:
                 two_run = one_run
                 one_run = one_run.next
 
-    def arr_full(self):  # создаем обычный список из связанного списка
+    def arr_full(self):  # создаем обычный список из связанного списка УБРАТЬ
         arr_f = []
         node = self.head
         while node != None:
@@ -122,6 +110,24 @@ class LinkedList_2:
             node = node.next
         return arr_f
 
+    def arr_select(self, var):  # делаем список из конкретных узлов начиная с первого УБРАТЬ
+        arr_sel = []
+        court = 0
+        node = self.head
+        while node != None and court < var:
+            court += 1
+            arr_sel.append(node)
+            node = node.next
+
+        return arr_sel
+
+    def arr_knot(self):  # создаем узлов список из связанного списка УБРАТЬ
+        arr_f = []
+        node = self.head
+        while node != None:
+            arr_f.append(node)
+            node = node.next
+        return arr_f
 
 my_list = LinkedList()
 my_list_1 = LinkedList_1()
@@ -129,7 +135,7 @@ my_list_2 = LinkedList_2()
 
 
 class MyTestCase(unittest.TestCase):
-    def test_clear(self):
+    def test_clear(self):# проверяем удаление списка
         my_list.add_in_tail(Node(54))
         my_list.add_in_tail(Node(69))
         my_list.add_in_tail(Node(78))
@@ -137,7 +143,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(my_list.clear(), None)
 
-    def test_len(self):
+    def test_len(self):# проверяем длинну списка
         my_list.add_in_tail(Node(54))
         my_list.add_in_tail(Node(69))
         my_list.add_in_tail(Node(78))
@@ -146,17 +152,25 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(res, 4)
 
-    def test_delete_last(self):
-        my_list_1.add_in_tail(Node_1(1))
-        my_list_1.add_in_tail(Node_1(2))
-        my_list_2.add_in_tail(Node_2(1))
-        my_list_2.add_in_tail(Node_2(2))
-        my_list_2.add_in_tail(Node_2(3))
-        my_list_2.add_in_tail(Node_2(3))
+    def test_delete_last(self):# сравниваем после удаления размеры списков через обычные списки
+        my_list_1.add_in_tail(Node(1))
+        my_list_1.add_in_tail(Node(2))
+        my_list_2.add_in_tail(Node(1))
+        my_list_2.add_in_tail(Node(2))
+        my_list_2.add_in_tail(Node(3))
+        my_list_2.add_in_tail(Node(3))
         my_list_2.delete(3)
         self.assertEqual(my_list_1.arr_full(), my_list_2.arr_full())
 
-
+    def test_delete_select(self):# сравниваем после удаления размеры списков через списки узлов
+        my_list_2.add_in_tail(Node(1))
+        my_list_2.add_in_tail(Node(2))
+        my_list_2.add_in_tail(Node(3))
+        my_list_2.add_in_tail(Node(3))
+        a = my_list_2.arr_select(2)
+        my_list_2.delete(3)
+        b = my_list_2.arr_knot()
+        self.assertEqual(a, b)
 
 if __name__ == '__main__':
     unittest.main()
