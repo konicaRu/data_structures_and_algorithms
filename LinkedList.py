@@ -43,7 +43,7 @@ class LinkedList:
         self.__init__()
 
     # проверить если элемента нет в списке
-    def delete(self, val, all = False):  # если нужно найти на удаление более 2 х элементов мб
+    def delete(self, val, all = True):  # если нужно найти на удаление более 2 х элементов мб
         if self.head == None:  # после нахождения 1 го запускать цикл по новой
             return
         one_run = self.head
@@ -53,6 +53,8 @@ class LinkedList:
         while one_run != None:
             if one_run.value == val:
                 two_run.next = one_run.next
+                if one_run == self.tail:
+                    self.tail  = two_run
                 if all == False:
                     return
                 else:
@@ -83,3 +85,5 @@ class LinkedList:
                 break
             else:
                 node = node.next
+
+ 
