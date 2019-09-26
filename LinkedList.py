@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, v, d = None):
+    def __init__(self, v, d=None):
         self.value = v
         self.next = d
 
@@ -40,24 +40,25 @@ class LinkedList:
         return count
 
     def clear(self):
-        self.__init__()
+        self.head = None
+        self.tail = None
 
     # проверить если элемента нет в списке
-    def delete(self, val, all = False):  # если нужно найти на удаление более 2 х элементов мб
+    def delete(self, val, all=False):  # если нужно найти на удаление более 2 х элементов мб
         if self.head == None:  # после нахождения 1 го запускать цикл по новой
             return
         one_run = self.head
         two_run = self.head
-        if one_run.value == val and self.head.next == None:# если удаляем один элемент
+        if one_run.value == val and self.head.next == None:  # если удаляем один элемент
             self.head = self.tail = None
             return
-        if one_run.value == val: # если удаляем первый элемент
+        if one_run.value == val:  # если удаляем первый элемент
             self.head = self.head.next
         while one_run != None:
             if one_run.value == val:
                 two_run.next = one_run.next
                 if one_run == self.tail:
-                    self.tail  = two_run
+                    self.tail = two_run
                 if all == False:
                     return
                 else:
