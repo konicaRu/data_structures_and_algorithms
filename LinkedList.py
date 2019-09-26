@@ -80,10 +80,11 @@ class LinkedList:
         return arr
 
     def insert(self, afterNode, newNode):
-        if self.head == None:
-            return
         node = self.head
         end = self.tail
+        if self.head == None:
+            self.tail = self.head = Node(newNode)
+            return
         while node != None:
             if node.value == afterNode:
                 node.next = Node(newNode, node.next)
