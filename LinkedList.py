@@ -48,6 +48,9 @@ class LinkedList:
             return
         one_run = self.head
         two_run = self.head
+        if one_run.value == val and self.head.next == None:# если удаляем один элемент
+            self.head = self.tail = None
+            return
         if one_run.value == val: # если удаляем первый элемент
             self.head = self.head.next
         while one_run != None:
@@ -79,9 +82,12 @@ class LinkedList:
         if self.head == None:
             return
         node = self.head
+        end = self.tail
         while node != None:
             if node.value == afterNode:
                 node.next = Node(newNode, node.next)
+                if afterNode == end.value:
+                    self.tail = node.next
                 break
             else:
                 node = node.next
