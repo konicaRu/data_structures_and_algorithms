@@ -74,8 +74,8 @@ class MyTestCase(unittest.TestCase):
         my_list_2 = LinkedList_test.LinkedList()
         my_list_2.insert(None, 78)
         self.assertEqual(my_list_2.head, my_list_2.tail)
-        self.assertEqual(my_list_2.head.next, None,)
-        self.assertEqual(my_list_2.tail.next, None,)
+        self.assertIsNone(my_list_2.head.next)
+        self.assertIsNone(my_list_2.tail.next)
 
 
 if __name__ == '__main__':
