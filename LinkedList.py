@@ -79,17 +79,19 @@ class LinkedList:
                 node = node.next
         return arr
 
-    def insert(self, afterNode, newNode):
+    def insert(self, afterNode, newNode):# на вход подаются ноды my_list.insert(None, Node(63))
         node = self.head
         end = self.tail
         if self.head == None:
-            self.tail = self.head = Node(newNode)  # self.tail = self.head = Node(newNode)
+            self.tail = self.head = newNode  # self.tail = self.head = Node(newNode)
             return
         while node != None:
-            if node.value == afterNode:
-                node.next = Node(newNode, node.next)
-                if afterNode == end.value:
-                    self.tail = node.next
-                break
+            if node.value == end.value: # вставляем ноду в конец списка
+                node.next = newNode #node.next = newNode(node.next)
+                self.tail = self.tail.next
+                return
+            if node.value == afterNode.value:  # вставляем ноду в начало
+                    node.next = Node(newNode.value, node.next)  # node.next = newNode(node.next)
+                    return
             else:
                 node = node.next
