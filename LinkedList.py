@@ -83,7 +83,7 @@ class LinkedList:
         node = self.head
         end = self.tail
         if self.head == None:
-            self.head = Node(newNode)# self.tail = self.head = Node(newNode)
+            self.tail = self.head = Node(newNode)  # self.tail = self.head = Node(newNode)
             return
         while node != None:
             if node.value == afterNode:
