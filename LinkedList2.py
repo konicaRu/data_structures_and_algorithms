@@ -117,13 +117,3 @@ class LinkedList2:
             newNode.next = self.head
             self.head.prev = newNode
             self.head = newNode
-
-
-my_list = LinkedList2()
-# my_list.add_in_tail(Node(50))
-# my_list.add_in_tail(Node(60))
-# my_list.add_in_tail(Node(70))
-# my_list.add_in_tail(Node(80))
-# my_node = my_list.find(80)
-my_list.insert(None, Node(90))
-my_list.print_all_nodes()
