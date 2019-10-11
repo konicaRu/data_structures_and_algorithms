@@ -6,9 +6,9 @@ class Stack:
         return len(self.stack)
 
     def pop(self):
+        self.stack.pop()
         if len(self.stack) == 0:
             return None  # если стек пустой
-        self.stack.pop()
 
     def push(self, value):
         self.stack.append(value)
@@ -18,4 +18,3 @@ class Stack:
             return None  # если стек пустой
         else:
             return self.stack[-1]
-
