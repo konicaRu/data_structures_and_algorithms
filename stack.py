@@ -8,7 +8,8 @@ class Stack:
     def pop(self):
         if self.size() == 0:
             return None  # если стек пустой
-        self.stack.pop()
+        return self.stack.pop()
+
 
     def push(self, value):
         self.stack.append(value)
