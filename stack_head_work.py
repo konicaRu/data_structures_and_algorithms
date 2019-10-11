@@ -8,14 +8,19 @@ class Stack:
     def pop(self):
         if self.size() == 0:
             return None  # если стек пустой
-        self.stack.pop(0)
+        return self.stack.pop(0)
 
     def push(self, value):
         self.stack.insert(0, value)
 
     def peek(self):
-        if len(self.stack) == 0:
+        if self.size() == 0:
             return None  # если стек пустой
         else:
             return self.stack[0]
-
+stack = Stack()
+stack.push(1)
+stack.push("2")
+stack.push(3.14)
+print(stack.pop())
+print(stack.peek())
