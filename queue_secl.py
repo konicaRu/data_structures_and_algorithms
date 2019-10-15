@@ -20,17 +20,16 @@ class Queue:
         if self.size() == 0:
             return f'Size List {self.size()}'
         if self.size() == 1:
-            return self.queue
+            return
         for i in range(step):
-            self.enqueue(self.queue[0])
-            self.queue.pop(0)
-        return self.queue
+            self.enqueue(self.dequeue())
+        return
 
 
 
 qu = Queue()
-qu.enqueue(1)
-qu.enqueue(2)
-qu.enqueue(3)
-print(qu.round(2))
+qu.enqueue(125)
+
+while qu.size()> 0:
+    print(qu.dequeue())
 
