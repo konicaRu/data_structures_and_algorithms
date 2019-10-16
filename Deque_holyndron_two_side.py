@@ -32,14 +32,15 @@ class Deque:
             return 'It is polyndrom'
         while self.size() > 1:
             if self.removeFront() == self.removeTail():
-                continue
-            else: return 'It is not polyndrom'
-            break
+                if self.removeFront() != self.removeTail():
+                    return 'It is not polyndrom'
+
+
         return 'It is polyndrom'
 deq = Deque()
 deq.addFront("t")
 deq.addFront("t1")
 deq.addTail("t1")
 deq.addFront("f2")
-deq.addTail("f4")
+deq.addTail("f2")
 print(deq.polyndrom())
