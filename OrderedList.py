@@ -121,8 +121,8 @@ class OrderedList:
             one_run.next.prev = None
             one_run.next = None
             one_run = self.head
-            if all == False:
-                return
+            #if all == False:
+            return
         while one_run is not None:
             if one_run.value == val and one_run.next != None:
                 one_run = one_run.prev
@@ -130,14 +130,14 @@ class OrderedList:
                 one_run = one_run.next
                 one_run.prev = one_run.prev.prev
                 one_run = one_run.prev
-                if all == False:
-                    return
+                #if all == False:
+                return
             if one_run.value == val and one_run.next == None:  # если в составе удаленного есть последний элемент
                 one_run = one_run.prev
                 one_run.next = None  # one_run.next.next
                 self.tail = one_run
-                if all == False:
-                    return
+                #if all == False:
+                return
             else:
                 one_run = one_run.next
 
@@ -176,4 +176,3 @@ class OrderedStringList(OrderedList):
             return 0
         if v1 > v2:
             return 1
-
