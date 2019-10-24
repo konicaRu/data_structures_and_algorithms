@@ -81,15 +81,8 @@ class OrderedList:
         while node is not None:  # вставляем элемент назад в списке <1 элемент  м/у 2 мя элементамии и спис возраст
             if ((self.compare(node.value, value) == -1 or self.compare(node.value, value) == 0) and (
                     self.compare(node.next.value, value) == 1 or self.compare(node.next.value, value) == 0)) or ((
-                                                                                                                         self.compare(
-                                                                                                                             node.value,
-                                                                                                                             value) == 1 or self.compare(
-                                                                                                                     node.value,
-                                                                                                                     value) == 0) and (
-                                                                                                                         self.compare(
-                                                                                                                             node.next.value,
-                                                                                                                             value) == -1) or self.compare(
-                node.next.value, value) == -0):
+                                                                                                                         self.compare(node.value, value) == 1 or self.compare(node.value, value) == 0) and
+                                                                                                                 (self.compare(node.next.value, value) == -1) or self.compare(node.next.value, value) == -0):
                 node_next = node.next
                 node.next = Node(value)
                 node.next.prev = node
@@ -183,5 +176,4 @@ class OrderedStringList(OrderedList):
             return 0
         if v1 > v2:
             return 1
-
 
