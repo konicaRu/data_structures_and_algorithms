@@ -178,9 +178,3 @@ class OrderedStringList(OrderedList):
             return 1
 
 
-my_list = OrderedStringList(True)
-my_list.add(' vasa ')
-my_list.add(' vasa ')
-my_list.add(' her ')
-my_list.add(' yyyyzzz ')
-print(my_list.get_all())
