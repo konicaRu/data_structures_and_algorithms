@@ -79,8 +79,17 @@ class OrderedList:
                     self.head = node.prev
                     return
         while node is not None:  # вставляем элемент назад в списке <1 элемент  м/у 2 мя элементамии и спис возраст
-            if (self.compare(node.value, value) == -1 and self.compare(node.next.value, value) == 1) or (
-                    self.compare(node.value, value) == 1 and self.compare(node.next.value, value) == -1):
+            if ((self.compare(node.value, value) == -1 or self.compare(node.value, value) == 0) and (
+                    self.compare(node.next.value, value) == 1 or self.compare(node.next.value, value) == 0)) or ((
+                                                                                                                         self.compare(
+                                                                                                                             node.value,
+                                                                                                                             value) == 1 or self.compare(
+                                                                                                                     node.value,
+                                                                                                                     value) == 0) and (
+                                                                                                                         self.compare(
+                                                                                                                             node.next.value,
+                                                                                                                             value) == -1) or self.compare(
+                node.next.value, value) == -0):
                 node_next = node.next
                 node.next = Node(value)
                 node.next.prev = node
@@ -166,10 +175,8 @@ class OrderedStringList(OrderedList):
         super(OrderedStringList, self).__init__(asc)
 
     def compare(self, v1, v2):
-        print(len(v1), len(v2))
         v1 = v1.strip()  # убираем пробел
         v2 = v2.strip()
-        print(len(v1), len(v2))
         if v1 < v2:
             return -1
         if v1 == v2:
