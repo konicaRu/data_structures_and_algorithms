@@ -45,7 +45,7 @@ class MyTestCase(unittest.TestCase):
         my_list.add(2)
         arr = my_list.get_all()
         my_list.delete(3)
-        self.assertEqual(my_list.delete.one_run.next.prev, my_list.delete.one_run.next)  # проверим связку next после удаления элемента
+        self.assertEqual(my_list.delete.one_run.next.prev, my_list.one_run)  # проверим связку next после удаления элемента
         arr_1 = my_list.get_all()  # создаем массив с помощью функции из введенных данных
         self.assertNotEqual(arr[1], arr_1[1])  # позиции удаленного элемента эл массива, определяем возрастание
         self.assertGreater(arr[0], arr[1])  # сравниваем первый и второй эл массива, определяем возрастание
