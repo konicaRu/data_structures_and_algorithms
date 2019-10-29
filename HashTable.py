@@ -44,21 +44,3 @@ class HashTable:
         else:
             # находит индекс слота со значением, или None
             return None
-
-
-ls = HashTable(13, 3)
-print(ls.put("reet"))
-print(ls.put("retq"))
-print(ls.put("resdrt"))
-print(ls.put("recvrt"))
-print(ls.put("r'l;kuet"))
-print(ls.put("renhyumet"))
-print(ls.put("rdfet"))
-print(ls.put("rdf;let"))
-print(ls.put("reuut"))
-print(ls.put("redt"))
-print(ls.put("rdfet"))
-print(ls.put("redt"))
-print(ls.put("redtrre"))
-print(ls.put("redttrtrre"))
-print(ls.find("redt"))
