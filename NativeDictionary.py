@@ -8,20 +8,19 @@ class NativeDictionary:
         return sum(map(ord, key)) % self.size
 
     def is_key(self, key):
-        num = self.hash_fun(key)
-        if num in self.slots:
+        if key in self.slots:
             return True
         else:
             return False
 
     def put(self, key, value):
         num = self.hash_fun(key)
-        self.slots[num] = num
+        self.slots[num] = key
         self.values[num] = value
 
     def get(self, key):
         num = self.hash_fun(key)
-        if num in self.slots:
+        if key in self.slots:
             return self.values[num]
         else:
             return None
