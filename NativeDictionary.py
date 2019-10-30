@@ -25,13 +25,3 @@ class NativeDictionary:
             return self.values[num]
         else:
             return None
-
-fb = NativeDictionary(13)
-fb.put('rama','a')
-fb.put('rawma','kj')
-fb.put('ramfa','ru')
-fb.put('rama','c')
-print(fb.is_key('rawma'))
-print(fb.is_key('rawwema'))
-print(fb.get('rama'))
-print(fb.get('rapoima'))
