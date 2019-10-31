@@ -27,17 +27,3 @@ class BloomFilter:
             return True
         else:
             return False
-
-
-gt = BloomFilter(32)
-gt.add("0123456789")
-gt.add("1234567890")
-gt.add("2345678901")
-gt.add("3456789012")
-gt.add("4567890123")
-gt.add("5678901234")
-gt.add("6789012345")
-gt.add("7890123456")
-gt.add("8901234567")
-gt.add("9012345678")
-print(gt.is_value("7890э123456"))
