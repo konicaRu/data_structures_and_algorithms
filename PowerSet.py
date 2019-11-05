@@ -1,8 +1,8 @@
 class PowerSet:
 
-    def __init__(self, sz, st):
-        self.line = sz
-        self.step = st
+    def __init__(self):
+        self.line = 20000
+        self.step = 3
         self.slots = [None] * self.line  # создает массив с size количеством слотов
 
     def size(self):
@@ -82,4 +82,5 @@ class PowerSet:
             return True
         else:
             return False
+
 
