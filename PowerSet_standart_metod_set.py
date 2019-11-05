@@ -18,20 +18,21 @@ class PowerSet:
         return hash  # суммируем значения кодов символов строки, и потом их брать по модулю размера таблицы.
 
     def put(self, value):
-        num = self.hash_fun(value)
         count = 0
+        num = self.hash_fun(value)
         if value in self.slots:  # если значение уже есть во множестве
             return
         else:
-            # while None in self.slots:
-            if self.slots[num] == None:
-                self.slots[num] = value
-                return
-            # if self.slots[num] != None:
-            #     num += self.step
-            # if num > self.line - 1:  # находит индекс пустого слота для значения, или None
-            #     num = count
-            #     count += 1
+            while None in self.slots:
+                if self.slots[num] == None:
+                    self.slots[num] = value
+                    return
+                if self.slots[num] != None:
+                    num += self.step
+                if num > self.line - 1:  # находит индекс пустого слота для значения, или None
+                    num = count
+                    count += 1
+            return None
 
 
     def get(self, value):
