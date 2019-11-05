@@ -1,13 +1,7 @@
-from datetime import datetime
-
-start_time = datetime.now()
-
-
 class PowerSet:
 
     def __init__(self):
-        self.line = 20
-        self.step = 3
+        self.line = 20000
         self.slots = [None] * self.line  # создает массив с size количеством слотов
 
     def size(self):
@@ -55,32 +49,3 @@ class PowerSet:
             return True
         else:
             return False
-
-
-arr = PowerSet()
-arr.put("rrrrr")
-arr.put('vasya')
-arr.put('forest')
-arr.put('foretst')
-arr.put('forwetst')
-arr.put('forwetrst')
-arr.put('forest')
-print(arr.size())
-arr.remove('utr')
-arr.remove('forest')
-print(arr.intersection({"rrrrr", 'vasya', 'forest', 'foretst', 'forwetst'}))
-print(arr.size())
-print(arr.issubset({"rrrrr", 'vasya', 'forest', 'foretst', 'forwetst'}))
-print(arr.difference({"rrrrr", 'vasya', 'forest', 'foretst', 'fortreetst'}))
-print(arr.union({"rrrrr", 'vasya', 'forest', 'foretst', 'fortreetst'}))
-end_time = datetime.now()
-print('Duration: {}'.format(end_time - start_time))
-
-"""1. у нас разные значения могут давать одинаковые индексы по хэшу
-   2. если мы формируем множество, в котором есть только те элементы, которые имеются в каждом из множеств
-   пробегаем по базовому множеству берем значение, смотрим есть ли оно вво втором множестве, если да, берем от него хэш, смотрим по этому хэшу значение,
-    сравниваем с исходным если совпадает загоняем в новое итоговое множество, если не совпало но элемент есть в списке идем тройками дальше перебирая 
-    все ячейки
-    http://skillsmart.ru/algo/py-kf32y/s83e6f8ef537.html
-    http://skillsmart.ru/algo/py-kf32y/re8af6c877.html
-    """
