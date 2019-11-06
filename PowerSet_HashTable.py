@@ -67,18 +67,3 @@ class PowerSet:
             return True
         else:
             return False
-
-
-arr = PowerSet()
-arr.put('1')
-arr.put('2')
-arr.put('3')
-arr.put('4')
-arr.put('5')
-arr.put('6')
-arr.put('5')
-# print(arr.intersection({'1', '2', '9', '12','5'}))
-# print(arr.union({"2", '6', '7', '10', '5'}))
-print(arr.difference({'1', '2', '3', '12', '34', '56'}))
-print(arr.issubset({'1', '2', '3', '12', '34', '56'}))
-print(arr.size())
