@@ -31,9 +31,15 @@ class PowerSet:
         for i in set2:
             if i in self.slots:  # пересечение текущего множества и set2
                 arr.append(i)
-        return arr
+        if len(arr) == 0:
+            return None
+        else:
+            return arr
+
 
     def union(self, set2):
+        if len(set2) or self.size() == 0:
+            return None
         for i in set2:
             if self.get(i) == True:  # объединение текущего множества и set2
                 continue
@@ -46,8 +52,10 @@ class PowerSet:
         for i in self.slots:
             if i not in set2:  # пересечение текущего множества и set2
                 inter_set.append(i)
-        return inter_set
-        # разница текущего множества и set2
+        if len(inter_set) == 0:
+                return None
+        else:
+            return inter_set
 
     def issubset(self, set2):
         count = 0
