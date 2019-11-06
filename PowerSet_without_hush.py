@@ -28,24 +28,25 @@ class PowerSet:
 
     def intersection(self, set2):
         arr = []
-        for i in set2:
-            if i in self.slots:  # пересечение текущего множества и set2
+        for i in self.slots:
+            if i not in set2:
                 arr.append(i)
-        if len(arr) == 0:
+        for j in arr:
+            self.slots.remove(j)
+        if len(self.slots) == 0:
             return None
         else:
-            return arr
-
+            return self.slots
 
     def union(self, set2):
-        if len(set2) or self.size() == 0:
+        if len(set2) == 0 or self.size() == 0:
             return None
         for i in set2:
             if self.get(i) == True:  # объединение текущего множества и set2
                 continue
             else:
                 self.put(i)
-            return self.slots
+        return self.slots
 
     def difference(self, set2):
         inter_set = []
@@ -53,7 +54,7 @@ class PowerSet:
             if i not in set2:  # пересечение текущего множества и set2
                 inter_set.append(i)
         if len(inter_set) == 0:
-                return None
+            return None
         else:
             return inter_set
 
