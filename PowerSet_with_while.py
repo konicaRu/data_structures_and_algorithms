@@ -34,8 +34,8 @@ class PowerSet:
             i = set2[count - 1]
             if self.get(i) == True:
                 arr_end.append(i)
-        self.slot = arr_end
-        return self.slot
+        self.slots = arr_end
+        return self.slots
 
     def union(self, set2):
         if len(set2) == 0 or self.size() == 0:
