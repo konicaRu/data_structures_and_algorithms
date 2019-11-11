@@ -32,13 +32,15 @@ class PowerSet:
             if self.get(i) == True:
                 arr_end.append(i)
         if len(arr_end) == 0:
-                return []
+            self.slots = []
+            return self.slots
         else: self.slots = arr_end
         return self.slots
 
     def union(self, set2):
         if len(set2.slots) == 0 or self.size() == 0:
-            return []
+            self.slots = []
+            return self.slots
         for i in set2.slots:
             if self.get(i) == True:  # объединение текущего множества и set2
                 continue
@@ -53,7 +55,8 @@ class PowerSet:
                 if i == j:
                     arr.append(i)
         if len(arr) == 0:
-            return []
+            self.slots = []
+            return self.slots
         for j in arr:
             self.slots.remove(j)
         return self.slots
