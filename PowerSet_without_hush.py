@@ -27,15 +27,14 @@ class PowerSet:
 
     # а возвращается пересечение этих множеств (множество, в котором есть только те элементы, которые имеются в каждом из множеств);
     def intersection(self, set2):#в качестве параметра выступает другое множество,
-        arr_end = []
+        self.arr_end = []
         for i in set2.slots:
             if self.get(i) == True:
-                arr_end.append(i)
-        if len(arr_end) == 0:
+                self.arr_end.append(i)
+        if len(self.arr_end) == 0:
             self.slots = []
-            return self.slots
-        else: self.slots = arr_end
-        return self.slots
+        return self.arr_end
+
 
     def union(self, set2):
         if len(set2.slots) == 0 or self.size() == 0:
