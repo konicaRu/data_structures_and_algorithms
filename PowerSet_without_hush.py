@@ -26,24 +26,22 @@ class PowerSet:
             return False
 
     # а возвращается пересечение этих множеств (множество, в котором есть только те элементы, которые имеются в каждом из множеств);
-    def intersection(self, set2):#в качестве параметра выступает другое множество,
+    def intersection(self, set2):  # в качестве параметра выступает другое множество,
         arr_end = PowerSet()
         for i in set2.slots:
             if self.get(i) == True:
                 arr_end.put(i)
         return arr_end
 
-
     def union(self, set2):
-        arr_end = PowerSet()
-        if len(set2.slots) == 0 or self.size() == 0:
-            return arr_end
+        arr = PowerSet()
+        if len(set2.slots) == 0 and self.size() == 0:
+            return arr
         for i in self.slots:
-            arr_end.put(i)
+            arr.put(i)
         for i in set2.slots:
-            if self.get(i) == False:  # объединение текущего множества и set2
-                arr_end.put(i)
-        return arr_end
+            arr.put(i)
+        return arr
 
     def difference(self, set2):  # self.slots = ['1', '2', '3', '4'] set2 = ['1', '2']
         arr_end = PowerSet()
