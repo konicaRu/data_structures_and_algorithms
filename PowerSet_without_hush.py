@@ -31,32 +31,26 @@ class PowerSet:
         for i in set2.slots:
             if self.get(i) == True:
                 arr_end.put(i)
-        return arr_end.slots
+        return arr_end
 
 
     def union(self, set2):
+        arr_end = PowerSet()
         if len(set2.slots) == 0 or self.size() == 0:
-            self.slots = []
-            return self.slots
+            return arr_end
+        for i in self.slots:
+            arr_end.put(i)
         for i in set2.slots:
-            if self.get(i) == True:  # объединение текущего множества и set2
-                continue
-            else:
-                self.put(i)
-        return self.slots
+            if self.get(i) == False:  # объединение текущего множества и set2
+                arr_end.put(i)
+        return arr_end
 
     def difference(self, set2):  # self.slots = ['1', '2', '3', '4'] set2 = ['1', '2']
-        arr.slots = []
+        arr_end = PowerSet()
         for i in self.slots:
-            for j in set2.slots:  # пересечение текущего множества и set2
-                if i == j:
-                    arr.append(i)
-        if len(arr) == 0:
-            self.slots = []
-            return self.slots
-        for j in arr:
-            self.slots.remove(j)
-        return self.slots
+            if set2.get(i) == False:  # в качестве параметра выступает другое множество,
+                arr_end.put(i)  # а возвращается подмножество текущего множества из таких элементов, которые не входят в множество-параметр;
+        return arr_end
 
     def issubset(self, set2):
         count = 0
