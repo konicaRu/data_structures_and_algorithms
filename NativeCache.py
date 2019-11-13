@@ -32,13 +32,3 @@ class NativeCache:
         num = self.seek_slot(key)
         self.slots[num] = key
         self.values[num] = value
-
-cash = NativeCache(7)
-cash.put('1','a')
-cash.put('2','b')
-cash.put('3','c')
-cash.put('4','d')
-cash.put('5','e')
-cash.put('1','f')
-cash.put('2','j')
-cash.put('8','j')
