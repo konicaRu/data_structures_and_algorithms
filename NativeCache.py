@@ -19,10 +19,8 @@ class NativeCache:
                 self.slots[num_del] = None
                 self.values[num_del] = None
             if self.slots[num] == None:
-                self.hits[num] += 1
                 return num
             if self.slots[num] != None:
-                self.hits[num] += 1
                 num += step_find
             if num > self.size - 1:  # находит индекс пустого слота для значения, или None
                 num = count
@@ -32,3 +30,14 @@ class NativeCache:
         num = self.seek_slot(key)
         self.slots[num] = key
         self.values[num] = value
+        self.hits[num] += 1
+
+cash = NativeCache(7)
+cash.put('1','a')
+cash.put('2','b')
+cash.put('3','c')
+cash.put('4','d')
+cash.put('5','e')
+cash.put('1','f')
+cash.put('2','j')
+cash.put('8','j')
