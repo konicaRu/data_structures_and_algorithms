@@ -53,7 +53,3 @@ graf.AddChild(node2, node3)
 graf.AddChild(node2, [node3, node4])
 #graf.DeleteNode(node2)
 
-#построение и обход деревьев питон? Нерекурсивная реализация обхода дерева питон
-#https://www.youtube.com/watch?v=V8bu4tn4i-4&list=PLRDzFCPr95fK7tr47883DFUbm4GeOjjc0&index=21
-#https://acm.bsu.by/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%B0%D1%8F_%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D1%8B%D1%85_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%BE%D0%B2%D1%8B%D1%85_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D0%B5%D0%B2#.D0.9A.D0.BB.D0.B0.D1.81.D1.81_.D0.B2.D0.B5.D1.80
-# .D1.88.D0.B8.D0.BD.D1.8B_.D0.B4.D0.B5.D1.80.D0.B5.D0.B2.D0.B0_3
