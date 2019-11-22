@@ -83,6 +83,6 @@ class SimpleTree:
             return 0
         count = 0
         for i in self.GetAllNodes():
-            if len(i.Children) == 0 or i.Children == None:
+            if len(i.Children) == 0:
                 count += 1  # количество листьев в дереве
         return count
