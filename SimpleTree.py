@@ -34,7 +34,7 @@ class SimpleTree:
             if len(stack) == 0:
                 break
             node = stack[0]
-            vizit.append(stack[0])
+            vizit.insert(0, stack[0])
             stack.pop(0)
         return vizit
 
@@ -49,24 +49,18 @@ class SimpleTree:
             result.append(node)
         while True:
             for i in range(len(node.Children)):
-                stack.append(node.Children[i])
+                stack.insert(0, node.Children[i])
             if len(stack) == 0:
                 break
             node = stack[0]
             if node.NodeValue == val:
                 result.append(node)
-            vizit.append(stack[0])
+            vizit.insert(0, stack[0])
             stack.pop(0)
         return result
 
     def MoveNode(self, OriginalNode, NewParent):  # ваш код перемещения узла вместе с его поддеревом // # в качестве дочернего для узла NewParent
-        # сохраняемм ноду которую нужно переместить
         if len(NewParent.Children) == 0:  # если родительская нода является листом без детей
-            self.AddChild(NewParent, OriginalNode)
-            node_up = OriginalNode.Parent
-            node_up.Children = []
-            OriginalNode.Parent = NewParent
-        else:
             self.AddChild(NewParent, OriginalNode)
             node_up = OriginalNode.Parent
             node_up.Children = []
@@ -82,4 +76,3 @@ class SimpleTree:
             if len(i.Children) == 0:
                 count += 1  # количество листьев в дереве
         return count
-
