@@ -1,3 +1,4 @@
+# ставим ноду 6 к ноде 3
 class SimpleTreeNode:
 
     def __init__(self, val, parent):
@@ -12,50 +13,93 @@ class SimpleTree:
         self.Root = root;  # корень, может быть None
 
     def AddChild(self, ParentNode, NewChild):
-         ParentNode.Children = NewChild #ParentNode.Children = NewChild
+        ParentNode.Children.append(NewChild)  # ParentNode.Children = NewChild
         # ваш код добавления нового дочернего узла существующему ParentNode
 
     def DeleteNode(self, NodeToDelete):
         node_up = NodeToDelete.Parent
-        if type(node_up.Children) is list:
-            node_up.Children.remove(NodeToDelete)
-            NodeToDelete.Parent = None
-            NodeToDelete.Children = None
-            NodeToDelete.NodeValue = None
-        else:
-            node_up.Children = None
-            NodeToDelete.Parent = None
-            NodeToDelete.Children = None
-            NodeToDelete.NodeValue = None
-
+        node_up.Children.remove(NodeToDelete)
+        NodeToDelete.Parent = None
         # ваш код удаления существующего узла NodeToDelete
 
-    def GetAllNodes(self):
-        node == self.Root
-        node1 = node# ваш код выдачи всех узлов дерева в определённом порядке
-        return []
+    def GetAllNodes(self):  # пробегаем по значению узлов NodeValue
+        vizit = []  # надо предусмотреть если корень нана или только один корень
+        stack = []
+        node = self.Root
+        if node == None:
+            return vizit
+        vizit.append(node)
+        while True:
+            for i in range(len(node.Children)):
+                stack.append(node.Children[i])
+            if len(stack) == 0:
+                break
+            node = stack[0]
+            vizit.append(stack[0])
+            stack.pop(0)
+        return vizit
 
-    def FindNodesByValue(self, val):
-        # ваш код поиска узлов по значению
-        return []
+    def FindNodesByValue(self, val):  # надо предусмотреть если корень нана или только один корень
+        vizit = []
+        stack = []
+        result = []
+        node = self.Root
+        if node == None:  # если первая нода нан
+            return vizit
+        if node.NodeValue == val:  # если нода одна корневая
+            result.append(node)
+        while True:
+            for i in range(len(node.Children)):
+                stack.append(node.Children[i])
+            if len(stack) == 0:
+                break
+            node = stack[0]
+            if node.NodeValue == val:
+                result.append(node)
+            vizit.append(stack[0])
+            stack.pop(0)
+        return result
 
-    def MoveNode(self, OriginalNode, NewParent):
-        # ваш код перемещения узла вместе с его поддеревом --
-        # в качестве дочернего для узла NewParent
-        pass
+    def MoveNode(self, OriginalNode, NewParent):  # ваш код перемещения узла вместе с его поддеревом // # в качестве дочернего для узла NewParent
+        # сохраняемм ноду которую нужно переместить
+        if len(NewParent.Children) == 0:  # если родительская нода является листом без детей
+            self.AddChild(NewParent, OriginalNode)
+            node_up = OriginalNode.Parent
+            node_up.Children = []
+            OriginalNode.Parent = NewParent
+        else:
+            self.AddChild(NewParent, OriginalNode)
+            node_up = OriginalNode.Parent
+            node_up.Children = []
+            OriginalNode.Parent = NewParent
 
     def Count(self):
-        # количество всех узлов в дереве
-        return 0
+        count = len(self.GetAllNodes())  # количество всех узлов в дереве
+        return count
 
     def LeafCount(self):
-        # количество листьев в дереве
-        return 0
+        count = 0
+        for i in self.GetAllNodes():
+            if len(i.Children) == 0:
+                count += 1  # количество листьев в дереве
+        return count
 
-graf = SimpleTree(8)
-node1 = SimpleTreeNode(graf, None)
+
+node1 = SimpleTreeNode(1, None)
 node2 = SimpleTreeNode(2, node1)
-node3 = SimpleTreeNode(3, node2)
+node3 = SimpleTreeNode(3, node1)
+node4 = SimpleTreeNode(4, node3)
+node5 = SimpleTreeNode(5, node3)
+node6 = SimpleTreeNode(6, node5)
+graf = SimpleTree(node1)
 graf.AddChild(node1, node2)
-graf.AddChild(node2, node3)
-graf.GetAllNodes()
+graf.AddChild(node1, node3)
+graf.AddChild(node3, node4)
+graf.AddChild(node3, node5)
+graf.AddChild(node5, node6)
+# graf.DeleteNode(node5)
+# print(graf.GetAllNodes())
+# print(graf.FindNodesByValue(1))
+# print(graf.MoveNode(node4, node2))
+print(graf.Count())
+print(graf.LeafCount())
