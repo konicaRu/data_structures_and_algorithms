@@ -30,7 +30,7 @@ class SimpleTree:
         vizit.append(node)
         while True:
             for i in range(len(node.Children)):
-                stack.append(node.Children[i])
+                stack.insert(0, node.Children[i])
             if len(stack) == 0:
                 break
             node = stack[0]
@@ -82,3 +82,4 @@ class SimpleTree:
             if len(i.Children) == 0:
                 count += 1  # количество листьев в дереве
         return count
+
