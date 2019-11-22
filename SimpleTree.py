@@ -1,4 +1,3 @@
-# ставим ноду 6 к ноде 3
 class SimpleTreeNode:
 
     def __init__(self, val, parent):
@@ -83,23 +82,3 @@ class SimpleTree:
             if len(i.Children) == 0:
                 count += 1  # количество листьев в дереве
         return count
-
-
-node1 = SimpleTreeNode(1, None)
-node2 = SimpleTreeNode(2, node1)
-node3 = SimpleTreeNode(3, node1)
-node4 = SimpleTreeNode(4, node3)
-node5 = SimpleTreeNode(5, node3)
-node6 = SimpleTreeNode(6, node5)
-graf = SimpleTree(node1)
-graf.AddChild(node1, node2)
-graf.AddChild(node1, node3)
-graf.AddChild(node3, node4)
-graf.AddChild(node3, node5)
-graf.AddChild(node5, node6)
-# graf.DeleteNode(node5)
-# print(graf.GetAllNodes())
-# print(graf.FindNodesByValue(1))
-# print(graf.MoveNode(node4, node2))
-print(graf.Count())
-print(graf.LeafCount())
