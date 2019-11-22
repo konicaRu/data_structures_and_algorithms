@@ -60,11 +60,13 @@ class SimpleTree:
         return result
 
     def MoveNode(self, OriginalNode, NewParent):  # ваш код перемещения узла вместе с его поддеревом // # в качестве дочернего для узла NewParent
-        if len(NewParent.Children) == 0:  # если родительская нода является листом без детей
-            self.AddChild(NewParent, OriginalNode)
-            node_up = OriginalNode.Parent
-            node_up.Children = []
-            OriginalNode.Parent = NewParent
+        self.AddChild(NewParent, OriginalNode)
+        node_up = OriginalNode.Parent
+        for i in range(len(node_up.Children)):
+            if node_up.Children[i] == OriginalNode:
+                node_up_pop = i
+        node_up.Children.pop(node_up_pop)
+        OriginalNode.Parent = NewParent
 
     def Count(self):
         count = len(self.GetAllNodes())  # количество всех узлов в дереве
