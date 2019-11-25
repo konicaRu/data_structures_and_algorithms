@@ -61,16 +61,20 @@ class SimpleTree:
             stack.pop(0)
         return result
 
-    def MoveNode(self, OriginalNode, NewParent):
-        if OriginalNode or NewParent == None:
-            return# ваш код перемещения узла вместе с его поддеревом // # в качестве дочернего для узла NewParent
-        self.AddChild(NewParent, OriginalNode)
-        node_up = OriginalNode.Parent
-        for i in range(len(node_up.Children)):
-            if node_up.Children[i] == OriginalNode:
-                node_up_pop = i
-        node_up.Children.pop(node_up_pop)
-        OriginalNode.Parent = NewParent
+    def MoveNode(self, OriginalNode, NewParent):# ваш код перемещения узла вместе с его поддеревом // # в качестве дочернего для узла NewParent
+        if OriginalNode == None:
+            return
+        if NewParent == None:
+            return
+        else:
+            self.AddChild(NewParent, OriginalNode)
+            node_up = OriginalNode.Parent
+            node_up_pop = 0
+            for i in range(len(node_up.Children)):
+                if node_up.Children[i] == OriginalNode:
+                    node_up_pop = i
+            node_up.Children.pop(node_up_pop)
+            OriginalNode.Parent = NewParent
 
     def Count(self):
         if self.Root == None:  # если первая нода нан
@@ -83,6 +87,6 @@ class SimpleTree:
             return 0
         count = 0
         for i in self.GetAllNodes():
-            if len(i.Children) == 0:
+            if len(i.Children) == 0 or i.Children == None:
                 count += 1  # количество листьев в дереве
         return count
