@@ -1,3 +1,4 @@
+import random
 class SimpleTreeNode:
 
     def __init__(self, val, parent):
@@ -13,6 +14,7 @@ class SimpleTree:
 
     def AddChild(self, ParentNode, NewChild):
         ParentNode.Children.append(NewChild)  # ParentNode.Children = NewChild
+        NewChild.Parent = ParentNode
         # ваш код добавления нового дочернего узла существующему ParentNode
 
     def DeleteNode(self, NodeToDelete):
