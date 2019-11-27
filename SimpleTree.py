@@ -1,4 +1,3 @@
-import random
 class SimpleTreeNode:
 
     def __init__(self, val, parent):
@@ -70,6 +69,8 @@ class SimpleTree:
         if OriginalNode == None:
             return
         if NewParent == None:
+            return
+        if OriginalNode.Parent == NewParent:# если переставляемые ноды уже так и стоят graf.AddChild(node2, node4) - graf.MoveNode(node4, node2)
             return
         else:
             node_up = OriginalNode.Parent
