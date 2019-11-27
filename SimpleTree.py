@@ -1,3 +1,4 @@
+import random
 class SimpleTreeNode:
 
     def __init__(self, val, parent):
@@ -64,6 +65,8 @@ class SimpleTree:
         return result
 
     def MoveNode(self, OriginalNode, NewParent):# ваш код перемещения узла вместе с его поддеревом // # в качестве дочернего для узла NewParent
+        if self.Root == None:  # если первая нода нан
+            return
         if OriginalNode == None:
             return
         if NewParent == None:
