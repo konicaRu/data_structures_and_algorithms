@@ -1,4 +1,3 @@
-import random
 class SimpleTreeNode:
 
     def __init__(self, val, parent):
@@ -70,14 +69,11 @@ class SimpleTree:
         if NewParent == None:
             return
         else:
-            self.AddChild(NewParent, OriginalNode)
             node_up = OriginalNode.Parent
-            node_up_pop = 0
             for i in range(len(node_up.Children)):
                 if node_up.Children[i] == OriginalNode:
-                    node_up_pop = i
-            node_up.Children.pop(node_up_pop)
-            OriginalNode.Parent = NewParent
+                    node_up.Children.remove(node_up.Children[i])
+            self.AddChild(NewParent, OriginalNode)
 
     def Count(self):
         if self.Root == None:  # если первая нода нан
