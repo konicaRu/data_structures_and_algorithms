@@ -74,9 +74,11 @@ class SimpleTree:
             return
         else:
             node_up = OriginalNode.Parent
+            index = 0
             for i in range(len(node_up.Children)):
                 if node_up.Children[i] == OriginalNode:
-                    node_up.Children.remove(node_up.Children[i])
+                    index = i
+            node_up.Children.remove(node_up.Children[index])
             self.AddChild(NewParent, OriginalNode)
 
     def Count(self):
