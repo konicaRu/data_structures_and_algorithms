@@ -104,18 +104,38 @@ class BST:
         if del_node.LeftChild != None and del_node.RightChild != None:
             stop_node = del_node
             del_node = del_node.RightChild
-            if del_node.LeftChild == None and del_node.RightChild == None:
-                del_node.Parent = stop_node.Parent
-                if stop_node.Parent.LeftChild == stop_node:
-                    stop_node.Parent.LeftChild = stop_node.RightChild
-                    stop_node.LeftChild.Parent = stop_node.RightChild
-                    stop_node.RightChild.LeftChild  = stop_node.LeftChild
-                    BSTFind.Node = None
-                if stop_node.Parent.RightChild == stop_node:
-                    stop_node.Parent.RightChild = stop_node.RightChild
-                    stop_node.LeftChild.Parent = stop_node.RightChild
-                    stop_node.RightChild.LeftChild = stop_node.LeftChild
-                    BSTFind.Node = None
+            count = 0
+            while count == 0:
+                if del_node.LeftChild == None and del_node.RightChild == None:
+                    del_node.Parent = stop_node.Parent
+                    if stop_node.Parent.LeftChild == stop_node:
+                        stop_node.Parent.LeftChild = stop_node.RightChild
+                        stop_node.LeftChild.Parent = stop_node.RightChild
+                        stop_node.RightChild.LeftChild  = stop_node.LeftChild
+                        BSTFind.Node = None
+                        return
+                    if stop_node.Parent.RightChild == stop_node:
+                        stop_node.Parent.RightChild = stop_node.RightChild
+                        stop_node.LeftChild.Parent = stop_node.RightChild
+                        stop_node.RightChild.LeftChild = stop_node.LeftChild
+                        BSTFind.Node = None
+                        return
+                else: del_node = del_node.LeftChild
+                count += 1
+            while True:
+                if del_node.LeftChild == None and del_node.RightChild == None:
+                    del_node.Parent = stop_node.Parent
+                    if stop_node.Parent.LeftChild == stop_node:
+                        stop_node.Parent.LeftChild = stop_node.RightChild
+                        stop_node.LeftChild.Parent = stop_node.RightChild
+                        stop_node.RightChild.LeftChild  = stop_node.LeftChild
+                        BSTFind.Node = None
+                if del_node.LeftChild == None and del_node.RightChild != None:
+                    del_node.RightChild.Parent = del_node.Parent
+                    if del_node.Parent.LeftChild == del_node:
+                        del_node.Parent.LeftChild = del_node.RightChild
+                        BSTFind.Node = None
+                        return
             pass
 
     def Count(self):
@@ -137,5 +157,6 @@ tree.AddKeyValue(11, 11)
 tree.AddKeyValue(13, 13)
 tree.AddKeyValue(15, 15)
 tree.AddKeyValue(15, 15)
-tree.DeleteNodeByKey(10)
+tree.AddKeyValue(15, 15)
+tree.DeleteNodeByKey(12)
 
