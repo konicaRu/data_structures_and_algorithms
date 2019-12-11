@@ -60,9 +60,14 @@ class BST:
             return True
 
     def FinMinMax(self, FromNode, FindMax):
+        cursor_node = self.Root
+        if cursor_node == None:
+            return None
         cursor_node = FromNode.Node
         if cursor_node == None:
             return None
+        if cursor_node.RightChild == None and cursor_node.LeftChild == None:
+            return cursor_node
         if FindMax == True:
             while cursor_node.RightChild != None:
                 cursor_node = cursor_node.RightChild
@@ -79,6 +84,10 @@ class BST:
         del_node = BSTFind.Node
         if BSTFind.NodeHasKey == False:
             return False
+        if del_node.LeftChild == None and del_node.RightChild == None and del_node.Parent == None:
+            self.Root = None
+            BSTFind.Node = None
+            return True
         if del_node.LeftChild == None and del_node.RightChild == None and del_node.Parent.RightChild == del_node:
             del_node.Parent.RightChild = None
             del_node.Parent = None
