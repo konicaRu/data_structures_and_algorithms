@@ -171,6 +171,8 @@ class BST:
             stack.append(node.LeftChild)
         if node.RightChild != None:
             stack.append(node.RightChild)
+        if node.LeftChild == None and node.RightChild == None:
+            return 1
         while True:
             node = stack[0]
             if node.LeftChild != None:
@@ -181,7 +183,4 @@ class BST:
             stack.pop(0)
             if len(stack) == 0:
                 break
-
         return len(vizit)
-
-
