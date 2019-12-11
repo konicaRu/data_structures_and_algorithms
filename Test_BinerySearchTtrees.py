@@ -28,7 +28,7 @@ class MyTestCase(unittest.TestCase):
         tree.FindNodeByKey(20)  # проверить что ключа нет
         self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, False)  # проверить что ключа нет
 
-    def test_FinMinMax(self):
+    def test_FinMinMax(self):# тестим вариант когда полное дерево максимальный и минимальный элемент
         tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
         tree.AddKeyValue(4, 4) # формируем дерево
         tree.AddKeyValue(12, 12)
@@ -44,7 +44,7 @@ class MyTestCase(unittest.TestCase):
         tree.AddKeyValue(11, 11)
         tree.AddKeyValue(13, 13)
         tree.AddKeyValue(15, 15)
-        # проверяем от стартовой ноды
+        #проверяем от стартовой ноды
         start = tree.FinMinMax(tree.FindNodeByKey(8), False)
         tree.FindNodeByKey(1)
         self.assertEqual( start == BinarySearchTrees.BSTFind.Node, True) # находим наименьщую
@@ -58,6 +58,32 @@ class MyTestCase(unittest.TestCase):
         start = tree.FinMinMax(tree.FindNodeByKey(12), True)
         tree.FindNodeByKey(15)
         self.assertEqual(start == BinarySearchTrees.BSTFind.Node, True)# находлим наибольшую
+        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(5), True), None)
+
+    def test_FinMinMax2(self): #поиск максимального и минимального ключей, начиная с заданного узла тестим вариант когда 2 ноды
+        tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
+        tree.AddKeyValue(4, 4) # формируем дерево
+        start = tree.FinMinMax(tree.FindNodeByKey(8), False)
+        tree.FindNodeByKey(4)
+        self.assertEqual( start == BinarySearchTrees.BSTFind.Node, True) # находим наименьщую
+        start = tree.FinMinMax(tree.FindNodeByKey(8), True)
+        tree.FindNodeByKey(15)
+        self.assertEqual(start == None, True) # находлим наибольшую, 15 нет , значит None
+
+    def test_FinMinMax2_2(self):  # в пустом дереве поиск максимального и минимального ключей, в пустом дереве
+        tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
+        tree.AddKeyValue(4, 4)
+        tree.DeleteNodeByKey(4)
+        tree.DeleteNodeByKey(8)
+        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(8), False), None)
+
+    def test_FinMinMax3(self):# тестим вариант когда 1 нода поиск максимального и минимального ключей, начиная с заданного узла,
+        tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
+        tree.FindNodeByKey(8)
+        #self.assertEqual(BinarySearchTrees.BSTFind.Node == tree.FinMinMax(tree.FindNodeByKey(8), True), True)
+        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(8), False), None)
+        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(8), True), None)
+
 
     def test_DeleteNodeByKeyList(self):#удаляем правый лист
         tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
@@ -340,13 +366,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, False)
         tree.DeleteNodeByKey(4)
         tree.FindNodeByKey(4)
-        # self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, False)
-        # tree.FindNodeByKey(8)
-        # self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
-        # tree.FindNodeByKey(10)
-        # self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
-        # tree.FindNodeByKey(1)
-        # self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
+
+
     def test_DeleteNode2knot2DelRight(self): # удаляем правый лист потом удаляем узел с оставшимся правым листом
         tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
         tree.AddKeyValue(4, 4)  # формируем дерево
@@ -376,35 +397,31 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
         tree.FindNodeByKey(13)
         self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
-    def test_DeleteNode2knot2DelRight(self): # удаляем правый лист потом удаляем узел с оставшимся правым листом
+
+    def test_DeleteNode2knot2Del2(self): # удаляем правый лист из 2 нод
         tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
-        tree.AddKeyValue(4, 4)  # формируем дерево
         tree.AddKeyValue(12, 12)
-        tree.AddKeyValue(2, 2)
-        tree.AddKeyValue(6, 6)
-        tree.AddKeyValue(10, 10)
-        tree.AddKeyValue(14, 14)
-        tree.AddKeyValue(1, 1)
-        tree.AddKeyValue(3, 3)
-        tree.AddKeyValue(5, 5)
-        tree.AddKeyValue(7, 7)
-        tree.AddKeyValue(9, 9)
-        tree.AddKeyValue(11, 11)
-        tree.AddKeyValue(13, 13)
-        tree.AddKeyValue(15, 15)
-        tree.AddKeyValue(15, 15)
-        tree.DeleteNodeByKey(1)
-        tree.FindNodeByKey(1)
+        tree.DeleteNodeByKey(12)
+        tree.FindNodeByKey(12)
         self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, False)
+        tree.FindNodeByKey(8)
+        self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
+
+    def test_DeleteNode2knot2Del3(self): # удаляем правый лист из 2 нод
+        tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
+        tree.AddKeyValue(4, 4)
         tree.DeleteNodeByKey(4)
         tree.FindNodeByKey(4)
         self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, False)
-        tree.FindNodeByKey(3)
+        tree.FindNodeByKey(8)
         self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
-        tree.FindNodeByKey(2)
-        self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
-        tree.FindNodeByKey(13)
-        self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, True)
+
+    def test_DeleteNode2knot2Delcent(self): # удаляем 1 ноду
+        tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
+        tree.DeleteNodeByKey(8)
+        tree.FindNodeByKey(8)
+        self.assertEqual(BinarySearchTrees.BSTFind.NodeHasKey, False)
+        self.assertEqual(tree.Root == None, True)
 
     def test_Count(self):  # считаем узлы
             tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
