@@ -67,7 +67,7 @@ class BST:
         if cursor_node == None:
             return None
         if cursor_node.RightChild == None and cursor_node.LeftChild == None:
-            return cursor_node
+            return None
         if FindMax == True:
             while cursor_node.RightChild != None:
                 cursor_node = cursor_node.RightChild
