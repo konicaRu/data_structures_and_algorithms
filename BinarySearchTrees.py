@@ -53,11 +53,11 @@ class BST:
         if BSTFind.ToLeft == False:
             node = BSTNode(key, val, BSTFind.Node)
             BSTFind.Node.RightChild = node
-            return
+            return True
         if BSTFind.ToLeft == True:
             node = BSTNode(key, val, BSTFind.Node)
             BSTFind.Node.LeftChild = node
-            return
+            return True
 
     def FinMinMax(self, FromNode, FindMax):
         cursor_node = FromNode.Node
@@ -81,32 +81,32 @@ class BST:
             del_node.Parent.RightChild = None
             del_node.Parent = None
             BSTFind.Node = None
-            return
+            return True
         if del_node.LeftChild == None and del_node.RightChild == None and del_node.Parent.LeftChild == del_node:
             del_node.Parent.LeftChild = None
             del_node.Parent = None
             BSTFind.Node = None
-            return
+            return True
         if del_node.LeftChild != None and del_node.RightChild == None:
             del_node.LeftChild.Parent = del_node.Parent
             if del_node.Parent.LeftChild == del_node:
                 del_node.Parent.LeftChild = del_node.LeftChild
                 BSTFind.Node = None
-                return
+                return True
             if del_node.Parent.RightChild == del_node:
                 del_node.Parent.RightChild = del_node.LeftChild
                 BSTFind.Node = None
-                return
+                return True
         if del_node.LeftChild == None and del_node.RightChild != None:
             del_node.RightChild.Parent = del_node.Parent
             if del_node.Parent.LeftChild == del_node:
                 del_node.Parent.LeftChild = del_node.RightChild
                 BSTFind.Node = None
-                return
+                return True
             if del_node.Parent.RightChild == del_node:
                 del_node.Parent.RightChild = del_node.RightChild
                 BSTFind.Node = None
-                return
+                return True
         if del_node.LeftChild != None and del_node.RightChild != None:
             if del_node.LeftChild.LeftChild == None and del_node.RightChild.RightChild == None and del_node.LeftChild.RightChild == None and del_node.RightChild.LeftChild == None:
                 if del_node.Parent.LeftChild == del_node:
@@ -115,14 +115,14 @@ class BST:
                     del_node.LeftChild.Parent = del_node.RightChild
                     del_node.RightChild.LeftChild = del_node.LeftChild
                     BSTFind.Node = None
-                    return
+                    return True
                 if del_node.Parent.RightChild == del_node:  # редактировать
                     del_node.RightChild.Parent = del_node.Parent
                     del_node.Parent.RightChild = del_node.RightChild
                     del_node.LeftChild.Parent = del_node.RightChild
                     del_node.RightChild.LeftChild = del_node.LeftChild
                     BSTFind.Node = None
-                    return
+                    return True
             stop_node = del_node
             del_node = del_node.RightChild
             while True:
@@ -136,7 +136,7 @@ class BST:
                         stop_node.RightChild.Parent = del_node
                         del_node.LeftChild = stop_node.LeftChild
                         BSTFind.Node = None
-                        return
+                        return True
                     if stop_node.Parent.RightChild == stop_node:
                         stop_node.LeftChild.Parent = del_node
                         del_node.Parent.LeftChild = None
@@ -146,7 +146,7 @@ class BST:
                         stop_node.RightChild.Parent = del_node
                         del_node.LeftChild = stop_node.LeftChild
                         BSTFind.Node = None
-                        return
+                        return True
 
                 if del_node.LeftChild == None and del_node.RightChild != None:
                     stop_node.LeftChild.Parent = del_node
@@ -156,7 +156,7 @@ class BST:
                     stop_node.RightChild.Parent = del_node
                     del_node.LeftChild = stop_node.LeftChild
                     BSTFind.Node = None
-                    return
+                    return True
                 else:
                     del_node = del_node.LeftChild
 
