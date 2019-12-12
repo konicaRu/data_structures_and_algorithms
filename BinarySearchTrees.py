@@ -63,7 +63,7 @@ class BST:
         cursor_node = self.Root
         if cursor_node == None:
             return None
-        cursor_node = FromNode.Node
+        cursor_node = FromNode
         if cursor_node == None:
             return None
         if cursor_node.RightChild == None and cursor_node.LeftChild == None:
