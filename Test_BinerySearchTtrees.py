@@ -45,28 +45,35 @@ class MyTestCase(unittest.TestCase):
         tree.AddKeyValue(13, 13)
         tree.AddKeyValue(15, 15)
         #проверяем от стартовой ноды
-        start = tree.FinMinMax(tree.FindNodeByKey(8), False)
+        tree.FindNodeByKey(8)
+        start = tree.FinMinMax(BinarySearchTrees.BSTFind.Node, False)
         tree.FindNodeByKey(1)
         self.assertEqual( start == BinarySearchTrees.BSTFind.Node, True) # находим наименьщую
-        start = tree.FinMinMax(tree.FindNodeByKey(8), True)
+        tree.FindNodeByKey(8)
+        start = tree.FinMinMax(BinarySearchTrees.BSTFind.Node, True)
         tree.FindNodeByKey(15)
         self.assertEqual(start == BinarySearchTrees.BSTFind.Node, True) # находлим наибольшую
         # проверяем от промежуточной ноды
-        start = tree.FinMinMax(tree.FindNodeByKey(12), False)
+        tree.FindNodeByKey(12)
+        start = tree.FinMinMax(BinarySearchTrees.BSTFind.Node, False)
         tree.FindNodeByKey(9)# находим наименьщую
         self.assertEqual(start == BinarySearchTrees.BSTFind.Node, True)# BinarySearchTrees.BSTFind.Node ссылка на ноду при работе функции tree.FindNodeByKey(9)
-        start = tree.FinMinMax(tree.FindNodeByKey(12), True)
+        tree.FindNodeByKey(12)
+        start = tree.FinMinMax(BinarySearchTrees.BSTFind.Node, True)
         tree.FindNodeByKey(15)
         self.assertEqual(start == BinarySearchTrees.BSTFind.Node, True)# находлим наибольшую
-        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(5), True), None)
+        tree.FindNodeByKey(5)
+        self.assertEqual(tree.FinMinMax(BinarySearchTrees.BSTFind.Node, True), None)
 
     def test_FinMinMax2(self): #поиск максимального и минимального ключей, начиная с заданного узла тестим вариант когда 2 ноды
         tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
         tree.AddKeyValue(4, 4) # формируем дерево
-        start = tree.FinMinMax(tree.FindNodeByKey(8), False)
+        tree.FindNodeByKey(8)
+        start = tree.FinMinMax(BinarySearchTrees.BSTFind.Node, False)
         tree.FindNodeByKey(4)
         self.assertEqual( start == BinarySearchTrees.BSTFind.Node, True) # находим наименьщую
-        start = tree.FinMinMax(tree.FindNodeByKey(8), True)
+        tree.FindNodeByKey(8)
+        start = tree.FinMinMax(BinarySearchTrees.BSTFind.Node, True)
         tree.FindNodeByKey(15)
         self.assertEqual(start == None, True) # находлим наибольшую, 15 нет , значит None
 
@@ -75,14 +82,14 @@ class MyTestCase(unittest.TestCase):
         tree.AddKeyValue(4, 4)
         tree.DeleteNodeByKey(4)
         tree.DeleteNodeByKey(8)
-        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(8), False), None)
+        self.assertEqual(tree.FinMinMax(BinarySearchTrees.BSTFind.Node, False), None)
 
     def test_FinMinMax3(self):# тестим вариант когда 1 нода поиск максимального и минимального ключей, начиная с заданного узла,
         tree = BinarySearchTrees.BST(BinarySearchTrees.BSTNode(8, 8, None))  # добавляем корневую ноду
         tree.FindNodeByKey(8)
         #self.assertEqual(BinarySearchTrees.BSTFind.Node == tree.FinMinMax(tree.FindNodeByKey(8), True), True)
-        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(8), False), None)
-        self.assertEqual(tree.FinMinMax(tree.FindNodeByKey(8), True), None)
+        self.assertEqual(tree.FinMinMax(BinarySearchTrees.BSTFind.Node, False), None)
+        self.assertEqual(tree.FinMinMax(BinarySearchTrees.BSTFind.Node, True), None)
 
 
     def test_DeleteNodeByKeyList(self):#удаляем правый лист
