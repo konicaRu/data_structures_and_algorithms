@@ -67,7 +67,7 @@ class BST:
         stack = []
         node = self.Root
         if node == None:
-            return 0
+            return tuple ()
         vizit.append(node)
         if node.LeftChild != None:
             stack.append(node.LeftChild)
