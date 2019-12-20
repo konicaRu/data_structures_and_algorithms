@@ -38,7 +38,7 @@ class aBST:
                 if 2 * index + 1 > len(arr) or 2 * index + 2 > len(arr): # отслеживаем выход индекса за диапазон
                     return -1
                 if arr[index] == key: # если значение узла и вставляемого узла равны
-                    return Folse
+                    return index
                 if arr[index] > key and arr[2 * index + 1] != None:# левый потомак
                     index = 2 * index + 1 #передвигаем переменную с которой сравниваем key по массиву с помощью формулы детей
                 if 2 * index + 1 > len(arr) or 2 * index + 2 > len(arr):# отслеживаем выход индекса за диапазон
