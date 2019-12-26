@@ -37,9 +37,3 @@ def Bst(arr_res, arr_res2):
                 arr_res[index] = node  # вставляем правого потомка
                 break
     return arr_res
-
-
-#a = [1, 2, 3, 4, 5, 6, 7, 9, 8, 10, 11, 12, 14, 13, 15]
-#a = []
-a = [3,5,6]
-print(GenerateBBSTArray(a))
