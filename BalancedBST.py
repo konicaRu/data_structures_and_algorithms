@@ -31,8 +31,6 @@ class BalancedBST:
             if cursor_node.NodeKey > key and cursor_node.LeftChild == None:
                 return cursor_node
 
-
-
     def _createBalancedTree(self, arr, start, end):
         if end < start:
             return None
@@ -79,7 +77,7 @@ class BalancedBST:
                     cursor_node2.Level = cursor_node.Level + 1
                     cursor_node.RightChild = cursor_node2
                     break
-        return True
+
 
     def IsBalanced(self, root_node):
         vizit = []
@@ -102,10 +100,12 @@ class BalancedBST:
             if node.LeftChild == None and node.RightChild == None:
              vizit.append(node.Level)
             stack.pop(0)
+        if self.Root.RightChild == None or self.Root.LeftChild == None:
+            a = vizit[0] - self.Root.Level
+            if a <= 1:
+                return True
+            else:
+                return False
         if abs(max(vizit) - min(vizit)) <= 1:
             return True
-
         return False
-
-
-
