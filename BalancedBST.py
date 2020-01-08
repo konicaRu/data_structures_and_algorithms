@@ -107,14 +107,5 @@ class BalancedBST:
 
         return False
 
-tree = BalancedBST()
-#print(tree.GenerateTree([3, 3]))
-#print(tree.GenerateTree([3, 2]))
-#print(tree.GenerateTree([3, 1, 2, 5, 4, 6]))
-#print(tree.GenerateTree([3, 1, 2, 4, 4, 4]))
-#print(tree.GenerateTree([3, 2, 1, 3, 3, 3, 3, 3]))
-#print(tree.GenerateTree([3, 2, 1, 5, 4, 6, 7]))
-print(tree.GenerateTree([4, 8, 2, 1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15]))
-print(tree.IsBalanced(tree.FindNodeByKey(4)))
 
 
