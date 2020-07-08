@@ -42,5 +42,5 @@ class HashTable:
                 num = count
                 count += 1
         else:
-            # находит индекс слота со значением, или None
+            #  находит индекс слота со значением, или None
             return None
