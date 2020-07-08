@@ -82,5 +82,5 @@ class PowerSet:
             return True
         else:
             return False
-
+ 
 
