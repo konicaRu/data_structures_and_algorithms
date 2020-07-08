@@ -45,3 +45,4 @@ deq.addTail("а")
 deq.addFront("8")
 deq.addTail("ш")
 print(deq.polyndrom())
+#
