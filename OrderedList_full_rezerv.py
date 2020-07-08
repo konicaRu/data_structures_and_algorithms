@@ -186,3 +186,4 @@ my_list.find(5)
 my_list.delete(3)
 my_list.delete(5)
 print(my_list.get_all())
+ 
