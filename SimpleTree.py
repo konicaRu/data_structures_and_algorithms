@@ -95,3 +95,4 @@ class SimpleTree:
             if len(i.Children) == 0 or i.Children == None:
                 count += 1  # количество листьев в дереве
         return count
+ 
