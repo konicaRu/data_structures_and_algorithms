@@ -32,4 +32,4 @@ qu.enqueue(125)
 
 while qu.size()> 0:
     print(qu.dequeue())
-
+ 
