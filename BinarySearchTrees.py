@@ -1,4 +1,3 @@
-
 class BSTNode:
     def __init__(self, key, val, parent):
         self.NodeKey = key
