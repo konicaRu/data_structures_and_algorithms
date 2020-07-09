@@ -1,3 +1,4 @@
+
 def GenerateBBSTArray(arr):
     if arr == []:
         return []
