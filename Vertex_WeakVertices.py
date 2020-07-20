@@ -31,7 +31,7 @@ class SimpleGraph:
         for j in range(len(self.m_adjacency)):
             if self.m_adjacency[j][v] == 1:
                 self.m_adjacency[j][v] = 0
-        return
+        return 
 
     def IsEdge(self, v1, v2):
         if self.m_adjacency[v1][v2] == 1 and self.m_adjacency[v2][v1] == 1:
