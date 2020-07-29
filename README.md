@@ -4,3 +4,6 @@
 # competency_examples_not_nub
 # Tkinter
 # resume
+resume
+# resume
+pictures_blog
