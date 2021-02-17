@@ -84,4 +84,3 @@ class BloomFilter:
         else:
             return False
    ```         
->>>>>>> 7eea6d7f2e1868f1b5a6c5affaaf6835102e1657
