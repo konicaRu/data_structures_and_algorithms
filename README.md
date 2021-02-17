@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-ну ни хрена себе
-# algorithm
-# konicaru.github.io
-# competency_examples_not_nub
-# Tkinter
-# resume
-resume
-# resume
-pictures_blog
-=======
 # Здесь находятся упражнения которые я решал на курсах по алгоритмам и структурам данных.  
 ![](https://raw.githubusercontent.com/konicaRu/data_structures_and_algorithms/master/pictures/algoritm200.jpg)
 ## Пример:
